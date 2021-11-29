@@ -94,9 +94,9 @@ const run = async () => {
     const netlifyToken = process.env.NETLIFY_TOKEN;
     const commitSha =
       github.context.eventName === 'pull_request' ? github.context.payload.pull_request.head.sha : github.context.sha;
-    const MAX_CREATE_TIMEOUT = Number(core.getInput('max_timeout')) || (60 * 5);
-    const MAX_WAIT_TIMEOUT = Number(core.getInput('max_timeout')) || (60 * 15);
-    const MAX_READY_TIMEOUT = Number(core.getInput('max_timeout')) || 60;
+    const MAX_CREATE_TIMEOUT = Number(core.getInput('max_timeout')) || 1800;
+    const MAX_WAIT_TIMEOUT = Number(core.getInput('max_timeout')) || 1800;
+    const MAX_READY_TIMEOUT = Number(core.getInput('max_timeout')) || 1800;
     const siteId = core.getInput('site_id');
 
     if (!netlifyToken) {
